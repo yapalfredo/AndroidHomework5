@@ -9,7 +9,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,16 +25,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     ArrayList<String> selectedCountries;
     Context context;
 
-    //Constructor
-    public MyAdapter(Context context, String[] myDataset1, String[] myDataset2, String[] myDataset3, ArrayList<String> selectedCountries) {
-        layoutInflater = LayoutInflater.from(context);
-        myStrings1 = myDataset1;
-        myStrings2 = myDataset2;
-        myStrings3 = myDataset3;
-        this.context = context;
-        this.selectedCountries = selectedCountries;
-    }
-
     // Provide a reference to the views for each data item
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView1;
@@ -51,6 +40,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             checkBox = itemView.findViewById(R.id.checkBoxViewLayout);
             myAdapter = adapter;
         }
+    }
+
+    //Constructor
+    public MyAdapter(Context context, String[] myDataset1, String[] myDataset2, String[] myDataset3, ArrayList<String> selectedCountries) {
+        layoutInflater = LayoutInflater.from(context);
+        myStrings1 = myDataset1;
+        myStrings2 = myDataset2;
+        myStrings3 = myDataset3;
+        this.context = context;
+        this.selectedCountries = selectedCountries;
     }
 
     // Create new views (invoked by the layout manager)
@@ -81,21 +80,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.textView2.setText(mCurrent2);
         holder.imageView.setImageDrawable(drawable); //assign the drawable to the image view
 
+        //save the country name to ArrayList when checkbox is checked
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked() == true)
                 {
-                    //Toast.makeText(context, "position checked =" + position , Toast.LENGTH_SHORT).show();
                     selectedCountries.add(mCurrent1);
                 }else
                 {
                     selectedCountries.remove(mCurrent1);
                 }
-
             }
         });
-
     }
 
     // Return the size of your data (invoked by the layout manager)

@@ -16,16 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] countries = {"USA", "UK","PHILIPPINES","BRAZIL","SOUTH KOREA","MYANMAR","KAZAKHSTAN","INDIA"};
     private String[] countriesCapital = {"Washington, DC", "London", "Manila", "Brasilia", "Seoul" ,"Naypyitaw","Astana","New Delhi"};
-    private String[] countriesFlag = {
-            "us",
-            "uk",
-            "ph",
-            "br",
-            "sk",
-            "mm",
-            "kz",
-            "in"
-    };
+    private String[] countriesFlag = { "us", "uk", "ph", "br", "sk", "mm", "kz", "in"};
 
     private Button btn;
 
