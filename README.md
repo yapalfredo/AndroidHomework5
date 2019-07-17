@@ -8,5 +8,5 @@ Which ever row is selected, when send button is clicked, the selected row (count
 
 Given: July 11th, 2019
 
-# Screenshots
+# Demo
 ![Alt text](Screenshot/app.gif?raw=true "demo")
