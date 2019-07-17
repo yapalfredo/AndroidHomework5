@@ -86,16 +86,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked() == true)
                 {
-                    //Toast.makeText(context, "position checked =" + position , Toast.LENGTH_SHORT).show();
                     selectedCountries.add(mCurrent1);
                 }else
                 {
                     selectedCountries.remove(mCurrent1);
                 }
-
             }
         });
-
     }
 
     // Return the size of your data (invoked by the layout manager)
