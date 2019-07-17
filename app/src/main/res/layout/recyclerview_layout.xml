@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:tooltipText="img"
+        android:tooltipText="country flag"
         android:scaleType="fitXY"
         android:id="@+id/imgViewLayout"
         android:layout_width="72dp"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:hint="txt1"
+            android:hint="Country"
             android:id="@+id/txtViewLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:textStyle="bold"
             android:textSize="20dp"/>
         <TextView
-            android:hint="txt2"
+            android:hint="Capital"
             android:id="@+id/txtViewLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

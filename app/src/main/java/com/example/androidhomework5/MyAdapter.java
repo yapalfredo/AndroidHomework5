@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     LayoutInflater layoutInflater;
@@ -21,15 +23,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     String[] myStrings1;
     String[] myStrings2;
     String[] myStrings3;
+    ArrayList<String> selectedCountries;
     Context context;
 
     //Constructor
-    public MyAdapter(Context context, String[] myDataset1, String[] myDataset2, String[] myDataset3) {
+    public MyAdapter(Context context, String[] myDataset1, String[] myDataset2, String[] myDataset3, ArrayList<String> selectedCountries) {
         layoutInflater = LayoutInflater.from(context);
         myStrings1 = myDataset1;
         myStrings2 = myDataset2;
         myStrings3 = myDataset3;
         this.context = context;
+        this.selectedCountries = selectedCountries;
     }
 
     // Provide a reference to the views for each data item
@@ -64,7 +68,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         // - get element from your data at this position
         // - replace the contents of the view with that element
 
-        String mCurrent1 = myStrings1[position];    //countries
+        final String mCurrent1 = myStrings1[position];    //countries
         String mCurrent2 = myStrings2[position];    //countriesCapital
         String mCurrent3 = myStrings3[position];    //countriesFlag
 
@@ -80,7 +84,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(context, "position checked =" + position , Toast.LENGTH_SHORT).show();
+                if (compoundButton.isChecked() == true)
+                {
+                    //Toast.makeText(context, "position checked =" + position , Toast.LENGTH_SHORT).show();
+                    selectedCountries.add(mCurrent1);
+                }else
+                {
+                    selectedCountries.remove(mCurrent1);
+                }
+
             }
         });
 
